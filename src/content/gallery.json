@@ -1,0 +1,318 @@
+{
+  "items": [
+    {
+      "type": "image",
+      "src": "/assets/image/1.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/2.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/1.mp4",
+      "poster": "/assets/video/poster/1.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/3.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/2.mp4",
+      "poster": "/assets/video/poster/2.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/4.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/5.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/3.mp4",
+      "poster": "/assets/video/poster/3.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/6.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/4.mp4",
+      "poster": "/assets/video/poster/4.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/7.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/5.mp4",
+      "poster": "/assets/video/poster/5.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/8.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/9.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/6.mp4",
+      "poster": "/assets/video/poster/6.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/10.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/7.mp4",
+      "poster": "/assets/video/poster/7.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/11.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/8.mp4",
+      "poster": "/assets/video/poster/8.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/12.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/13.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/9.mp4",
+      "poster": "/assets/video/poster/9.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/14.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/10.mp4",
+      "poster": "/assets/video/poster/10.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/15.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/16.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/11.mp4",
+      "poster": "/assets/video/poster/11.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/17.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/12.mp4",
+      "poster": "/assets/video/poster/12.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/18.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/13.mp4",
+      "poster": "/assets/video/poster/13.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/19.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/20.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/14.mp4",
+      "poster": "/assets/video/poster/14.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/21.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/15.mp4",
+      "poster": "/assets/video/poster/15.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/22.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/16.mp4",
+      "poster": "/assets/video/poster/16.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/23.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/24.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/17.mp4",
+      "poster": "/assets/video/poster/17.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/25.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/18.mp4",
+      "poster": "/assets/video/poster/18.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/26.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/19.mp4",
+      "poster": "/assets/video/poster/19.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/27.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/28.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/20.mp4",
+      "poster": "/assets/video/poster/20.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/29.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/21.mp4",
+      "poster": "/assets/video/poster/21.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/30.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/31.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/22.mp4",
+      "poster": "/assets/video/poster/22.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/32.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/23.mp4",
+      "poster": "/assets/video/poster/23.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/33.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/24.mp4",
+      "poster": "/assets/video/poster/24.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/34.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/35.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/25.mp4",
+      "poster": "/assets/video/poster/25.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/36.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/26.mp4",
+      "poster": "/assets/video/poster/26.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/37.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/27.mp4",
+      "poster": "/assets/video/poster/27.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/38.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/39.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/28.mp4",
+      "poster": "/assets/video/poster/28.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/40.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/29.mp4",
+      "poster": "/assets/video/poster/29.jpg"
+    },
+    {
+      "type": "image",
+      "src": "/assets/image/41.jpg"
+    },
+    {
+      "type": "video",
+      "src": "/assets/video/hero.mp4",
+      "poster": "/assets/video/poster/hero.jpg"
+    }
+  ]
+}

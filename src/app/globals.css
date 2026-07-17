@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AL-SAFĀ · Sacred Luxury design system
+   Palette: ivory / sand · deep emerald · warm gold
+   ============================================================ */
+
+:root {
+  /* surfaces */
+  --ivory: #f6f0e2;
+  --sand: #ece2cd;
+  --parchment: #fbf7ee;
+
+  /* greens */
+  --emerald-950: #04201a;
+  --emerald-900: #07291f;
+  --emerald-800: #0b3a2b;
+  --emerald-700: #114a37;
+  --emerald-500: #1f6a4f;
+
+  /* gold */
+  --gold-700: #9c7a36;
+  --gold-500: #c2a05c;
+  --gold-400: #d4b878;
+  --gold-300: #e2c98d;
+  --gold-200: #ecd9ab;
+
+  /* ink */
+  --ink: #1c1a14;
+  --ink-soft: #4a463a;
+  --cream: #f6f0e2;
+  --cream-soft: #cdc6b3;
+
+  /* fonts — defaults are the Latin/English pairing.
+     The Amharic pairing is swapped in via [data-locale="am"]. */
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-jost), system-ui, sans-serif;
+  --font-arabic: var(--font-amiri), serif;
+
+  /* themeable surfaces + text (light defaults; dark values below) */
+  --surface: var(--ivory);
+  --surface-2: var(--parchment);
+  --surface-3: var(--sand);
+  --heading: var(--emerald-900);
+  --body: var(--ink);
+  --body-soft: var(--ink-soft);
+  --tile: #ffffff;
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
+}
+
+/* Dark theme: the light sections turn dark; the emerald sections stay dark. */
+html[data-theme="dark"] {
+  --surface: #082018;
+  --surface-2: #05180f;
+  --surface-3: #0b2a1f;
+  --heading: var(--cream);
+  --body: #d6d0be;
+  --body-soft: #9b9782;
+  --tile: #0e3122;
+
+  --background: #04120d;
+  --foreground: var(--cream);
+}
+
+/* Amharic locale → Ethiopic typefaces */
+html[data-locale="am"] {
+  --font-display: var(--font-eth-serif), Georgia, serif;
+  --font-body: var(--font-eth-sans), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-parchment: var(--parchment);
+
+  --color-emerald-950: var(--emerald-950);
+  --color-emerald-900: var(--emerald-900);
+  --color-emerald-800: var(--emerald-800);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-500: var(--emerald-500);
+
+  --color-gold-700: var(--gold-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-400: var(--gold-400);
+  --color-gold-300: var(--gold-300);
+  --color-gold-200: var(--gold-200);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-heading: var(--heading);
+  --color-body: var(--body);
+  --color-body-soft: var(--body-soft);
+  --color-tile: var(--tile);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-arabic: var(--font-arabic);
+}
+
+* {
+  border-color: color-mix(in srgb, var(--gold-500) 22%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--gold-400);
+  color: var(--emerald-950);
+}
+
+/* ---- typographic helpers ---- */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.font-arabic {
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+/* the brand logo is always set in Ethiopic letters, in any locale */
+.logo-text {
+  font-family: var(--font-eth-serif), Georgia, serif;
+  letter-spacing: 0.005em;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+html[data-locale="am"] .eyebrow {
+  text-transform: none;
+  letter-spacing: 0.12em;
+}
+
+.gold-text {
+  background: linear-gradient(100deg, var(--gold-700), var(--gold-400) 45%, var(--gold-200) 70%, var(--gold-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* hairline gold rule */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+}
+
+/* ---- decorative atmosphere ---- */
+
+/* subtle paper grain over light surfaces */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* eight-point Islamic star tile, used as a faint texture */
+.arabesque {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23c2a05c' stroke-width='1' opacity='0.5'%3E%3Cpath d='M40 6l9 25 25 9-25 9-9 25-9-25-25-9 25-9z'/%3E%3Crect x='22' y='22' width='36' height='36' transform='rotate(45 40 40)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* radial vignette glow */
+.glow-gold {
+  background: radial-gradient(60% 60% at 50% 40%, color-mix(in srgb, var(--gold-400) 30%, transparent), transparent 70%);
+}
+
+/* animated keyframes */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.float-slow { animation: float-slow 9s ease-in-out infinite; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ---- horizontal gallery marquee ---- */
+@keyframes gb-marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes gb-marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.gb-row {
+  width: max-content;
+  will-change: transform;
+}
+.gb-row-left {
+  animation: gb-marquee-left var(--gb-dur, 70s) linear infinite;
+}
+.gb-row-right {
+  animation: gb-marquee-right var(--gb-dur, 70s) linear infinite;
+}
+/* pause only the row the pilgrim is hovering */
+.gb-row:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-slow { animation: none; }
+  .gb-row-left,
+  .gb-row-right { animation: none; }
+}

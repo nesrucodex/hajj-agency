@@ -1,0 +1,250 @@
+{
+  "brand": {
+    "name": "ጎራ በሉ ትራቨል",
+    "fullName": "Gora Belu Travel Agent",
+    "tagline": "Journeys of the heart to the House of Allah",
+    "bismillah": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+    "bismillahTranslit": "In the name of Allah, the Most Gracious, the Most Merciful",
+    "establishedYear": "2011",
+    "establishedLabel": "EST.",
+    "phone": "+251 900 000 951",
+    "phoneAlt": "+251 911 453 821",
+    "whatsapp": "+251900000951",
+    "email": "gorabelu0900@gmail.com",
+    "address": "Bole Michael, in front of Zebra Crossing · Jemo 1 · Addis Ababa",
+    "accreditation": "In partnership with Ethiopian Airlines · Accredited Agent",
+    "social": {
+      "facebook": "https://facebook.com/gorabeluTravelAgent",
+      "instagram": "https://instagram.com/gorabeluTravelAgent",
+      "tiktok": "https://tiktok.com/@gorabeluTravelAgent"
+    }
+  },
+  "promos": [
+    {
+      "id": "hajj",
+      "season": "hajj",
+      "active": true,
+      "badge": "Hajj season",
+      "title": "Hajj registration now open",
+      "detail": "8 nights in Makkah · full guidance · with Ethiopian Airlines · limited seats",
+      "cta": { "label": "Reserve your seat", "href": "#contact" }
+    },
+    {
+      "id": "ramadan",
+      "season": "ramadan",
+      "active": true,
+      "badge": "Ramadan Umrah",
+      "title": "Ramadan Umrah packages open",
+      "detail": "Last 10 nights · hotels near the Haram · limited seats",
+      "cta": { "label": "Reserve your seat", "href": "#contact" }
+    },
+    {
+      "id": "umrah",
+      "season": "default",
+      "active": true,
+      "badge": "New offer",
+      "title": "Complete Umrah package now open",
+      "detail": "3 nights Madinah · 8 nights Makkah · with Ethiopian Airlines · limited seats",
+      "cta": { "label": "Reserve your seat", "href": "#contact" }
+    }
+  ],
+  "nav": {
+    "links": [
+      { "label": "The Journey", "href": "#journey" },
+      { "label": "Packages", "href": "#packages" },
+      { "label": "Why Gora Belu", "href": "#why" },
+      { "label": "Gallery", "href": "#gallery" },
+      { "label": "Pilgrims", "href": "#testimonials" }
+    ],
+    "cta": { "label": "Begin Your Journey", "href": "#contact" }
+  },
+  "hero": {
+    "eyebrow": "Hajj & Umrah · Est. 2011",
+    "titleLines": ["A sacred journey,", "guided with grace"],
+    "subtitle": "For over fifteen years we have accompanied pilgrims to Makkah and Madinah with reverence, comfort, and meticulous care, so your heart can remain where it belongs.",
+    "primaryCta": { "label": "Explore Packages", "href": "#packages" },
+    "secondaryCta": { "label": "Speak with a guide", "href": "#contact" },
+    "media": [
+      {
+        "type": "video",
+        "src": "/assets/video/hero.mp4",
+        "poster": "/assets/image/26.jpg",
+        "alt": "Gora Belu Travel serving pilgrims at the Haram"
+      },
+      {
+        "type": "video",
+        "src": "/assets/video/4.mp4",
+        "poster": "/assets/image/7.jpg",
+        "alt": "Pilgrims within the Haram"
+      }
+    ],
+    "verse": {
+      "arabic": "وَأَذِّن فِي ٱلنَّاسِ بِٱلْحَجِّ",
+      "translation": "“And proclaim to the people the Hajj.”",
+      "reference": "Surah Al-Hajj, 22:27"
+    }
+  },
+  "stats": [
+    { "value": "15+", "label": "Years guiding pilgrims" },
+    { "value": "12,000+", "label": "Hujjāj & Mu'tamir served" },
+    { "value": "4.9/5", "label": "Average pilgrim rating" },
+    { "value": "24/7", "label": "On-ground support in Makkah" }
+  ],
+  "about": {
+    "eyebrow": "Our Calling",
+    "title": "A trust, not a transaction",
+    "body": [
+      "To carry a believer to the House of Allah is a sacred amānah. We treat every itinerary, every meal, and every step between the Haramayn as an act of service.",
+      "Our guides are scholars and seasoned travellers who walk beside you, easing the logistics so you may give your full presence to worship."
+    ],
+    "highlights": [
+      { "title": "Scholar-led groups", "text": "Every journey is accompanied by a qualified guide for rites, du'ā and reflection." },
+      { "title": "Steps from the Haram", "text": "Hand-selected hotels within walking distance of Masjid al-Haram and the Prophet's Mosque." },
+      { "title": "Effortless logistics", "text": "Visas, transfers, ihram support and ziyārat, all arranged and included." }
+    ]
+  },
+  "journey": {
+    "eyebrow": "The Pilgrimage",
+    "title": "Every step, accompanied",
+    "subtitle": "From your first enquiry to your return home, we remain at your side.",
+    "steps": [
+      { "number": "01", "title": "Intention & Consultation", "text": "We listen to your needs and recommend the package that suits your pace, budget and devotion." },
+      { "number": "02", "title": "Preparation & Documents", "text": "Visa processing, vaccinations guidance and a pre-departure briefing on the rites of Hajj & Umrah." },
+      { "number": "03", "title": "Arrival in the Holy Lands", "text": "Met at the airport and welcomed to your hotel beside the Haram, with full assistance into ihram." },
+      { "number": "04", "title": "Worship & Ziyārat", "text": "Guided performance of the rites, plus visits to the blessed historical sites of Makkah and Madinah." },
+      { "number": "05", "title": "Return, transformed", "text": "A serene departure and continued du'ā that your pilgrimage is accepted. Hajj Mabrūr." }
+    ]
+  },
+  "packages": {
+    "eyebrow": "Sacred Packages",
+    "title": "Choose the journey that calls you",
+    "subtitle": "Transparent, all-inclusive packages for Hajj and Umrah. Final pricing is confirmed at consultation.",
+    "tabs": [
+      { "key": "hajj", "label": "Hajj" },
+      { "key": "umrah", "label": "Umrah" }
+    ],
+    "items": [
+      {
+        "category": "umrah",
+        "name": "Umrah Serenity",
+        "tier": "Essential",
+        "price": "From $1,890",
+        "duration": "10 nights",
+        "summary": "An intimate Umrah for those seeking a quiet, focused retreat.",
+        "features": ["4★ hotels near the Haram", "Return flights & transfers", "Guided Umrah rites", "Madinah ziyārat (3 nights)", "Visa & assistance included"],
+        "featured": false
+      },
+      {
+        "category": "umrah",
+        "name": "Umrah Noor",
+        "tier": "Premium",
+        "price": "From $2,950",
+        "duration": "14 nights",
+        "summary": "Elevated comfort with closer hotels and a smaller group.",
+        "features": ["5★ hotels overlooking the Haram", "Premium flights & private transfers", "Dedicated scholar guide", "Extended Madinah stay (5 nights)", "Full-board dining"],
+        "featured": true
+      },
+      {
+        "category": "hajj",
+        "name": "Hajj Mabrūr",
+        "tier": "Standard",
+        "price": "From $8,400",
+        "duration": "21 nights",
+        "summary": "A complete, comfortable Hajj with experienced group leaders.",
+        "features": ["Aziziyah & Mina tent (standard)", "All flights, transfers & meals", "Full guidance through all rites", "Madinah ziyārat included", "Hajj visa & documentation"],
+        "featured": false
+      },
+      {
+        "category": "hajj",
+        "name": "Hajj Khāssa",
+        "tier": "VIP",
+        "price": "From $14,900",
+        "duration": "18 nights",
+        "summary": "Our most refined Hajj, offering proximity, privacy and unhurried care.",
+        "features": ["VIP Mina camp near Jamarat", "5★ Haram-view hotels", "Small group, private transport", "Senior scholar accompaniment", "Concierge service throughout"],
+        "featured": true
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Pilgrims Choose Us",
+    "title": "Care worthy of the journey",
+    "features": [
+      { "icon": "kaaba", "title": "Proximity to the Haram", "text": "Hotels chosen for their nearness, so your time is spent in worship, not in transit." },
+      { "icon": "guide", "title": "Knowledgeable guides", "text": "Scholars who teach the rites gently and answer every question with patience." },
+      { "icon": "shield", "title": "Fully accredited", "text": "IATA accredited and approved by the Ministry of Hajj & Umrah, so your trust is protected." },
+      { "icon": "heart", "title": "Care for every pilgrim", "text": "Special attention for elderly travellers, families, and those journeying for the first time." },
+      { "icon": "moon", "title": "Spiritual companionship", "text": "Daily reflections, group du'ā and a sense of brotherhood and sisterhood throughout." },
+      { "icon": "clock", "title": "Always reachable", "text": "A 24/7 on-ground team in Makkah and Madinah, plus a single point of contact at home." }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Moments of Devotion",
+    "title": "From the journeys we have shared",
+    "subtitle": "Photographs and films captured by our team alongside the pilgrims we serve.",
+    "note": "Hover to pause · tap any frame to expand",
+    "items": [
+      { "type": "image", "src": "/assets/image/26.jpg", "alt": "The Kaaba at sunset", "caption": "The Kaaba at sunset" },
+      { "type": "video", "src": "/assets/video/4.mp4", "poster": "/assets/image/7.jpg", "alt": "Within the Haram", "caption": "Within the Haram" },
+      { "type": "image", "src": "/assets/image/22.jpg", "alt": "An ornate mihrab", "caption": "The mihrab's grace" },
+      { "type": "image", "src": "/assets/image/13.jpg", "alt": "The Prophet's Mosque in Madinah", "caption": "Madinah, city of light" },
+      { "type": "image", "src": "/assets/image/41.jpg", "alt": "Gora Belu pilgrims at Arafat", "caption": "Our pilgrims at Arafat" },
+      { "type": "video", "src": "/assets/video/21.mp4", "poster": "/assets/image/29.jpg", "alt": "Footage from Madinah", "caption": "Moments in Madinah" },
+      { "type": "image", "src": "/assets/image/31.jpg", "alt": "Lanterns by the mosque", "caption": "Evening in Madinah" },
+      { "type": "image", "src": "/assets/image/3.jpg", "alt": "The Jamarat at Mina", "caption": "Mina, at the Jamarat" },
+      { "type": "image", "src": "/assets/image/35.jpg", "alt": "A rose before the Prophet's Mosque", "caption": "Longing for the Rawdah" },
+      { "type": "image", "src": "/assets/image/9.jpg", "alt": "Gora Belu pilgrims together", "caption": "Together, in devotion" }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Words from Pilgrims",
+    "title": "Hearts that returned full",
+    "items": [
+      { "quote": "From the moment we landed, every detail was handled with such care. I could finally focus only on my worship. May Allah reward this team.", "name": "Aisha R.", "trip": "Umrah Noor · 2024", "rating": 5 },
+      { "quote": "My elderly parents performed Hajj with complete peace of mind. The guides were patient, gentle and deeply knowledgeable. Truly a Hajj Mabrūr.", "name": "Yusuf K.", "trip": "Hajj Khāssa · 2023", "rating": 5 },
+      { "quote": "The hotel was steps from the Haram and the group felt like family. I have already recommended Gora Belu to everyone I know.", "name": "Fatima S.", "trip": "Umrah Serenity · 2024", "rating": 5 }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Before You Travel",
+    "title": "Questions, answered with care",
+    "items": [
+      { "q": "What is the difference between Hajj and Umrah?", "a": "Hajj is the obligatory pilgrimage performed during specific days of Dhul-Hijjah and is one of the five pillars of Islam. Umrah, often called the 'lesser pilgrimage', can be performed at any time of the year. We offer guided packages for both." },
+      { "q": "Do you handle visas and documentation?", "a": "Yes. Hajj and Umrah visas, along with all required documentation and guidance on vaccinations, are arranged for you as part of every package." },
+      { "q": "How close are the hotels to the Haram?", "a": "Hotel proximity varies by package tier, from a short walk to direct Haram views. Each package page lists the distance clearly, and we are happy to show you on a map." },
+      { "q": "Can you accommodate elderly or first-time pilgrims?", "a": "Absolutely. We provide additional support for elderly travellers, wheelchair assistance where needed, and detailed briefings so first-time pilgrims feel fully prepared." },
+      { "q": "Are payment plans available?", "a": "Yes. Flexible deposit and instalment options are available. Speak with one of our guides to arrange a plan that suits you." }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Your Invitation Awaits",
+    "title": "The House of Allah is calling",
+    "subtitle": "Let us carry the details, so you may carry only your intention. Speak with a dedicated guide today.",
+    "primary": { "label": "Request a Consultation", "href": "#contact" },
+    "secondary": { "label": "Call us", "href": "tel:+251900000951" }
+  },
+  "contact": {
+    "eyebrow": "Begin Your Journey",
+    "title": "Let us plan your pilgrimage",
+    "subtitle": "Share a few details and a dedicated guide will reach out within one working day, inshā'Allah.",
+    "form": {
+      "fields": [
+        { "name": "name", "label": "Full name", "type": "text", "placeholder": "Your name" },
+        { "name": "email", "label": "Email", "type": "email", "placeholder": "you@email.com" },
+        { "name": "phone", "label": "Phone / WhatsApp", "type": "tel", "placeholder": "+1 ..." },
+        { "name": "interest", "label": "I am interested in", "type": "select", "options": ["Hajj", "Umrah", "Not sure yet"] },
+        { "name": "message", "label": "Tell us about your journey", "type": "textarea", "placeholder": "Number of pilgrims, preferred dates, any special needs..." }
+      ],
+      "submitLabel": "Send my enquiry"
+    }
+  },
+  "footer": {
+    "blurb": "A trust, not a transaction. Accompanying pilgrims to Makkah and Madinah with reverence and care since 2011.",
+    "columns": [
+      { "title": "Journeys", "links": [ { "label": "Hajj Packages", "href": "#packages" }, { "label": "Umrah Packages", "href": "#packages" }, { "label": "Group Bookings", "href": "#contact" }, { "label": "Ziyārat Tours", "href": "#contact" } ] },
+      { "title": "Company", "links": [ { "label": "About Us", "href": "#about" }, { "label": "Why Gora Belu", "href": "#why" }, { "label": "Pilgrim Stories", "href": "#testimonials" }, { "label": "Contact", "href": "#contact" } ] },
+      { "title": "Support", "links": [ { "label": "FAQs", "href": "#faq" }, { "label": "Travel Guidance", "href": "#journey" }, { "label": "Terms & Conditions", "href": "#" }, { "label": "Privacy Policy", "href": "#" } ] }
+    ],
+    "legal": "All pilgrimage packages are subject to availability and confirmation. Prices are indicative and finalised at consultation."
+  }
+}
