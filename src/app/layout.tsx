@@ -4,12 +4,23 @@ import {
   Jost,
   Amiri,
   Noto_Serif_Ethiopic,
-  Noto_Sans_Ethiopic,
-} from "next/font/google";
+  Noto_Sans_Ethiopic, Geist } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/locale";
 import StructuredData from "@/components/StructuredData";
 import { mediaUrl } from "@/lib/media";
+import { DEFAULT_LOCALE, type Locale, type SiteContent } from "@/lib/content";
+import { getSiteContent } from "@/lib/data/site-content";
+import { getGalleryItems } from "@/lib/data/gallery";
+import { getPublishedHotels } from "@/lib/data/hotels";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+
+// Content is edited from /admin and should show up immediately — always
+// read fresh from the database rather than serving a statically cached page.
+export const dynamic = "force-dynamic";
 
 const OG_IMAGE = mediaUrl("/assets/image/26.jpg")!;
 
@@ -48,14 +59,23 @@ const ethSans = Noto_Sans_Ethiopic({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+// Title + description come from the (default-locale) SiteSettings row in the
+// database, editable from /admin → Brand & SEO — everything else below is
+// static site metadata.
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent(DEFAULT_LOCALE);
+  return {
+    ...baseMetadata,
+    title: {
+      default: content.brand.metaTitle ?? content.brand.name,
+      template: `%s · ${content.brand.fullName}`,
+    },
+    description: content.brand.metaDescription ?? content.brand.tagline,
+  };
+}
+
+const baseMetadata: Metadata = {
   metadataBase: new URL("https://gorabelu.example"),
-  title: {
-    default: "ጎራ በሉ ትራቨል · ሐጅና ዑምራ · Gora Belu Travel",
-    template: "%s · Gora Belu Travel",
-  },
-  description:
-    "ጎራ በሉ ትራቨል · ወደ መካና መዲና በአክብሮትና በእንክብካቤ የታጀበ የሐጅና ዑምራ ጉዞ። Guided Hajj & Umrah journeys from Addis Ababa with reverence and care.",
   keywords: [
     "Hajj",
     "Umrah",
@@ -118,20 +138,34 @@ const fontVars = [
   ethSans.variable,
 ].join(" ");
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const [am, en, gallery, hotels] = await Promise.all([
+    getSiteContent("am"),
+    getSiteContent("en"),
+    getGalleryItems(),
+    getPublishedHotels(),
+  ]);
+  const dictionaries: Record<Locale, SiteContent> = { am, en };
+
   return (
     <html
-      lang="am"
-      data-locale="am"
+      lang={DEFAULT_LOCALE}
+      data-locale={DEFAULT_LOCALE}
       data-theme="light"
-      className={`${fontVars} h-full antialiased`}
+      className={cn("h-full", "antialiased", fontVars, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full" suppressHydrationWarning>
         <StructuredData />
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider
+          initialDictionaries={dictionaries}
+          initialGallery={gallery}
+          initialHotels={hotels}
+        >
+          {children}
+        </LocaleProvider>
       </body>
     </html>
   );

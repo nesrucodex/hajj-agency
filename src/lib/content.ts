@@ -1,15 +1,13 @@
-import am from "@/content/am.json";
-import en from "@/content/en.json";
-
 /**
- * Central content source. Every string, price and label on the marketing page
- * is read from the per-locale JSON files in `src/content/`:
- *   - `am.json` → Amharic (default)
- *   - `en.json` → English
+ * Central content shape. Every string, price and label on the marketing page
+ * is read from the database (see `src/lib/data/site-content.ts`, which
+ * assembles a `SiteContent` object per locale from Prisma) and is editable
+ * from `/admin`. The types below describe that shape so editors get
+ * autocomplete and the build fails fast if the data drifts.
  *
- * Edit those files (or swap them out) and the UI reflects the new values — no
- * component changes required. The types below describe the shape so editors get
- * autocomplete and the build fails fast if the JSON drifts.
+ * `src/content/am.json` / `en.json` / `gallery.json` are kept on disk as the
+ * historical reference the database was first seeded from — see
+ * `prisma/seed-data.ts` — but are no longer imported at runtime.
  */
 
 export const LOCALES = ["am", "en"] as const;
@@ -39,6 +37,8 @@ export interface SiteContent {
     address: string;
     accreditation: string;
     social: Record<string, string>;
+    metaTitle?: string;
+    metaDescription?: string;
   };
   promos: {
     id: string;
@@ -98,14 +98,12 @@ export interface SiteContent {
     title: string;
     subtitle: string;
     note: string;
-    items: {
-      type: "image" | "video";
-      src: string;
-      poster?: string;
-      alt: string;
-      caption: string;
-      span?: string;
-    }[];
+  };
+  hotels: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    note: string;
   };
   testimonials: {
     eyebrow: string;
@@ -146,13 +144,38 @@ export interface SiteContent {
   };
 }
 
-export const dictionaries: Record<Locale, SiteContent> = {
-  am: am as SiteContent,
-  en: en as SiteContent,
-};
-
-export function getContent(locale: Locale): SiteContent {
-  return dictionaries[locale] ?? dictionaries[DEFAULT_LOCALE];
+/** Shared (non-localized) gallery item — see `src/lib/data/gallery.ts`. */
+export interface GalleryItem {
+  id: string;
+  type: "image" | "video";
+  src: string;
+  poster?: string;
+  alt?: string;
+  caption?: string;
+  span?: string;
 }
 
-export default dictionaries;
+/** Published hotel with its rates — see `src/lib/data/hotels.ts`. */
+export interface HotelRate {
+  dayType: "WD" | "WE" | "ALL";
+  dbl?: number;
+  trp?: number;
+  quad?: number;
+}
+
+export interface Hotel {
+  id: string;
+  city: "makkah" | "madinah";
+  name: string;
+  nameAr?: string;
+  stars?: number;
+  featured: boolean;
+  periodFrom?: string;
+  periodTo?: string;
+  breakfast?: string;
+  lunch?: string;
+  haramView?: string;
+  kaabaView?: string;
+  currency: string;
+  rates: HotelRate[];
+}

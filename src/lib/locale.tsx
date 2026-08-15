@@ -10,7 +10,8 @@ import {
 } from "react";
 import {
   DEFAULT_LOCALE,
-  getContent,
+  type GalleryItem,
+  type Hotel,
   type Locale,
   type SiteContent,
 } from "./content";
@@ -25,13 +26,28 @@ interface LocaleCtx {
   setTheme: (t: Theme) => void;
   toggleTheme: () => void;
   t: SiteContent;
+  /** Shared (non-localized) gallery items, fetched once on the server. */
+  gallery: GalleryItem[];
+  /** Published hotels with rates, fetched once on the server. */
+  hotels: Hotel[];
 }
 
 const Ctx = createContext<LocaleCtx | null>(null);
 const LOCALE_KEY = "gb-locale";
 const THEME_KEY = "gb-theme";
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
+export function LocaleProvider({
+  children,
+  initialDictionaries,
+  initialGallery,
+  initialHotels,
+}: {
+  children: React.ReactNode;
+  /** One `SiteContent` per locale, fetched server-side from the database. */
+  initialDictionaries: Record<Locale, SiteContent>;
+  initialGallery: GalleryItem[];
+  initialHotels: Hotel[];
+}) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
   const [theme, setThemeState] = useState<Theme>("light");
 
@@ -88,9 +104,11 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       theme,
       setTheme,
       toggleTheme,
-      t: getContent(locale),
+      t: initialDictionaries[locale] ?? initialDictionaries[DEFAULT_LOCALE],
+      gallery: initialGallery,
+      hotels: initialHotels,
     }),
-    [locale, setLocale, toggleLocale, theme, setTheme, toggleTheme],
+    [locale, setLocale, toggleLocale, theme, setTheme, toggleTheme, initialDictionaries, initialGallery, initialHotels],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

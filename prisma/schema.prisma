@@ -1,0 +1,251 @@
+// Gora Belu Travel — content database.
+//
+// Only the parts of the site that actually change day-to-day for a travel
+// agency are backend-driven: prices/packages, hotel options & rates, the
+// seasonal promo banner, brand/contact details, testimonials and FAQ. Copy
+// that a developer sets once (hero, about, journey, why-us, gallery, footer,
+// nav) lives in `src/content/am.json` / `en.json` instead — same as most
+// real Hajj/Umrah agency sites, which don't run a full CMS for every section.
+//
+// Run `pnpm db:push` after editing this file, then `pnpm db:seed` (or just
+// start the dev server — `src/instrumentation.ts` seeds automatically).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Locale {
+  am
+  en
+}
+
+enum Season {
+  hajj
+  ramadan
+  default
+}
+
+enum PackageCategory {
+  hajj
+  umrah
+}
+
+enum HotelCity {
+  makkah
+  madinah
+}
+
+enum DayType {
+  WD
+  WE
+  ALL
+}
+
+// ---------------------------------------------------------------------------
+// Auth — single admin account.
+// ---------------------------------------------------------------------------
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// Singleton, per-locale settings — brand/contact/SEO, plus the headline copy
+// for each section that stays admin-editable (Packages/Hotels/Testimonials/
+// FAQ). Everything else's copy is static, see src/content/*.json.
+// ---------------------------------------------------------------------------
+
+model SiteSettings {
+  locale Locale @id
+
+  // brand
+  brandName         String
+  brandFullName     String
+  tagline           String
+  bismillah         String
+  bismillahTranslit String
+  establishedYear   String
+  establishedLabel  String?
+  phone             String
+  phoneAlt          String?
+  whatsapp          String
+  email             String
+  address           String
+  accreditation     String
+  socialFacebook    String?
+  socialInstagram   String?
+  socialTiktok      String?
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // packages
+  packagesEyebrow  String
+  packagesTitle    String
+  packagesSubtitle String
+
+  // hotels
+  hotelsEyebrow  String
+  hotelsTitle    String
+  hotelsSubtitle String
+  hotelsNote     String
+
+  // testimonials
+  testimonialsEyebrow String
+  testimonialsTitle   String
+
+  // faq
+  faqEyebrow String
+  faqTitle   String
+
+  updatedAt DateTime @updatedAt
+
+  promos       Promo[]
+  packages     Package[]
+  testimonials Testimonial[]
+  faqs         Faq[]
+}
+
+// ---------------------------------------------------------------------------
+// Repeatable, per-locale content lists that stay admin-editable.
+// ---------------------------------------------------------------------------
+
+model Promo {
+  id       String  @id @default(cuid())
+  locale   Locale
+  season   Season
+  active   Boolean @default(true)
+  badge    String
+  title    String
+  detail   String
+  ctaLabel String
+  ctaHref  String
+  order    Int     @default(0)
+
+  settings SiteSettings @relation(fields: [locale], references: [locale], onDelete: Cascade)
+
+  @@index([locale])
+}
+
+model Package {
+  id       String          @id @default(cuid())
+  locale   Locale
+  category PackageCategory
+  name     String
+  tier     String
+  price    String
+  duration String
+  summary  String
+  features Json // string[]
+  featured Boolean @default(false)
+  active   Boolean @default(true)
+  order    Int     @default(0)
+
+  settings SiteSettings @relation(fields: [locale], references: [locale], onDelete: Cascade)
+
+  @@index([locale])
+}
+
+model Testimonial {
+  id     String  @id @default(cuid())
+  locale Locale
+  quote  String
+  name   String
+  trip   String
+  rating Int     @default(5)
+  active Boolean @default(true)
+  order  Int     @default(0)
+
+  settings SiteSettings @relation(fields: [locale], references: [locale], onDelete: Cascade)
+
+  @@index([locale])
+}
+
+model Faq {
+  id     String  @id @default(cuid())
+  locale Locale
+  q      String
+  a      String
+  active Boolean @default(true)
+  order  Int     @default(0)
+
+  settings SiteSettings @relation(fields: [locale], references: [locale], onDelete: Cascade)
+
+  @@index([locale])
+}
+
+// ---------------------------------------------------------------------------
+// Hotels — extracted from the Thamer Samil Al Suwat Group price list.
+// Names/stars/dates are shared across locales. `published` controls what
+// shows on the public "Hotels" section at all; `featured` picks the compact
+// highlight set shown by default (the rest are still there for the admin to
+// promote later, or to quote from directly).
+// ---------------------------------------------------------------------------
+
+model Hotel {
+  id         String    @id @default(cuid())
+  supplierId String?
+  city       HotelCity
+  name       String
+  nameAr     String?
+  stars      Int?
+  periodFrom DateTime?
+  periodTo   DateTime?
+  breakfast  String? // "Incl." | "R.O" | "Ind." | a number as text
+  lunch      String?
+  haramView  String? // "H.V" price, or "*" if unavailable
+  kaabaView  String? // "K.V" price, or "*" if unavailable
+  currency   String    @default("SAR")
+  notes      String?
+  published  Boolean   @default(true)
+  featured   Boolean   @default(false)
+  order      Int       @default(0)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  supplier Supplier?   @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+  rates    HotelRate[]
+
+  @@index([city])
+}
+
+model HotelRate {
+  id      String  @id @default(cuid())
+  hotelId String
+  dayType DayType
+  dbl     Int?
+  trp     Int?
+  quad    Int?
+
+  hotel Hotel @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+
+  @@index([hotelId])
+}
+
+// Private, admin-only supplier/vendor record (bank details, internal team
+// contacts) — never rendered on the public site.
+model Supplier {
+  id            String   @id @default(cuid())
+  name          String
+  bankName      String?
+  accountName   String?
+  accountNumber String?
+  iban          String?
+  swiftCode     String?
+  contacts      Json? // { name, phone, email }[]
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  hotels Hotel[]
+}

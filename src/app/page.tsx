@@ -4,6 +4,7 @@ import Stats from "@/components/sections/Stats";
 import About from "@/components/sections/About";
 import Journey from "@/components/sections/Journey";
 import Packages from "@/components/sections/Packages";
+import Hotels from "@/components/sections/Hotels";
 import Why from "@/components/sections/Why";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
@@ -23,6 +24,7 @@ export default function Home() {
         <About />
         <Journey />
         <Packages />
+        <Hotels />
         <Why />
         <Gallery />
         <Testimonials />

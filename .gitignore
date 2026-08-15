@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# prisma generated client
+/src/generated/prisma/
+
 # heavy media — hosted on Cloudinary, resolved via src/lib/media.ts
 /public/assets/image/
 /public/assets/video/

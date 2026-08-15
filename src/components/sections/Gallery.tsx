@@ -6,10 +6,8 @@ import { useSite } from "@/lib/locale";
 import { Container, SectionHeading } from "@/components/ui";
 import { IconChevron } from "@/components/icons";
 import { mediaUrl } from "@/lib/media";
-import galleryData from "@/content/gallery.json";
 
 type MediaItem = { type: "image" | "video"; src: string; poster?: string };
-const ITEMS = (galleryData as { items: MediaItem[] }).items;
 
 function PlayBadge({ size = "md" }: { size?: "sm" | "md" }) {
   const s = size === "sm" ? "size-10" : "size-14";
@@ -78,15 +76,17 @@ function Row({
 }
 
 function Lightbox({
+  items,
   index,
   onClose,
   onNav,
 }: {
+  items: MediaItem[];
   index: number;
   onClose: () => void;
   onNav: (dir: 1 | -1) => void;
 }) {
-  const item = ITEMS[index];
+  const item = items[index];
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -172,24 +172,24 @@ function Lightbox({
 
       {/* counter */}
       <span className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-gold-500/30 bg-emerald-950/60 px-4 py-1.5 text-xs tracking-wider text-cream-soft">
-        {index + 1} / {ITEMS.length}
+        {index + 1} / {items.length}
       </span>
     </motion.div>
   );
 }
 
 export default function Gallery() {
-  const { t } = useSite();
+  const { t, gallery: items } = useSite();
   const { gallery } = t;
   const [active, setActive] = useState<number | null>(null);
 
-  const rowA = ITEMS.map((item, index) => ({ item, index })).filter((_, i) => i % 2 === 0);
-  const rowB = ITEMS.map((item, index) => ({ item, index })).filter((_, i) => i % 2 === 1);
+  const rowA = items.map((item, index) => ({ item, index })).filter((_, i) => i % 2 === 0);
+  const rowB = items.map((item, index) => ({ item, index })).filter((_, i) => i % 2 === 1);
 
   const nav = useCallback(
     (dir: 1 | -1) =>
-      setActive((cur) => (cur === null ? cur : (cur + dir + ITEMS.length) % ITEMS.length)),
-    [],
+      setActive((cur) => (cur === null ? cur : (cur + dir + items.length) % items.length)),
+    [items.length],
   );
 
   return (
@@ -216,7 +216,7 @@ export default function Gallery() {
 
       <AnimatePresence>
         {active !== null && (
-          <Lightbox index={active} onClose={() => setActive(null)} onNav={nav} />
+          <Lightbox items={items} index={active} onClose={() => setActive(null)} onNav={nav} />
         )}
       </AnimatePresence>
     </section>
